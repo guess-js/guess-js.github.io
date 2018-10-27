@@ -3,7 +3,7 @@ path: "/docs/next"
 title: "Using Guess.js with Next.js"
 ---
 
-Next.js is a lightweight library for creating web applications. In this guide, we'll show how you can use Guess.js to **predictively prefetch** pages in your application using Guess.js.
+[Next.js](https://nextjs.org) is a lightweight library for creating web applications. In this guide, we'll show how you can use Guess.js to **predictively prefetch** pages in your Next.js apps.
 
 <div style="background-color: #e7f4ff; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
 You can find the source code for the application on <a href="https://github.com/mgechev/guess-next">GitHub</a>.
@@ -36,21 +36,17 @@ Inside `package.json` add the following content:
 }
 ```
 
-In the snippet above we create a new Node.js project called `guess-next` and declare its dependencies. We also declare two scripts:
+In the snippet above we declare metadata for a new Node.js project called `guess-next` and set its dependencies. We also add two scripts:
 
-- `start` -
-- `build` - this script will build our application using `next` from `node_modules/.bin/next`
+- `start` - starts a development server with live reloading
+- `build` - builds our application using `next` from `node_modules/.bin/next`
 - `export` - running `npm run export` will first build our application and after that export its static files to a directory called `guess`
 
-As next step run:
-
-```bash
-npm i
-```
+As next step run `npm i` to install the project's dependencies.
 
 ### Application Layout
 
-Now, let us create the application layout. In the `guess-next` directory, create a folder `components` and add a file called `layout.js`:
+The application layout defines the structure of our application. In our example, we'll create a layout which has a header and an element where we'll render the currently selected page. In the `guess-next` directory, create a folder called `components` and add a file called `layout.js`:
 
 ```bash
 mkdir components && cd components && touch layout.js
@@ -93,9 +89,7 @@ const layout = ({ router, children, title = '🔮 Next.js + Guess.js' }) => {
 export default withRouter(layout);
 ```
 
-The component above defines the structure of the page. Inside of it, we create a navigation with three links: `/`, `/examples`, and `/about`. After that, we add a `div` with attribute `className`, which has value `content`.
-
-Inside of this element we render the children elements which are passed to the layout component. For example:
+Inside of the component above, we create the navigation of the application. We create three links: `/`, `/examples`, and `/about`. After that, we add a `div` class name `content`. Inside of this element we render the children elements which are passed to the layout component. For example:
 
 ```javascript
 <layout>
@@ -130,7 +124,19 @@ export default () => (
 );
 ```
 
-Replace `[PAGE_NAME]` with the name of the corresponding page. For example, in `media.js` replace `[PAGE_NAME]` with `Media`.
+In the snippet above, we import the `Layout` component and as its content we set the string `[PAGE_NAME]`. Remember that this content will be rendered inside of the `div.content` element of the `Layout` component. Replace `[PAGE_NAME]` with the name of the corresponding page. For example, in `media.js` replace `[PAGE_NAME]` with `Media`:
+
+```javascript
+// media.js
+import * as React from 'react';
+import Layout from '../components/layout';
+
+export default () => (
+  <Layout>
+    Media
+  </Layout>
+);
+```
 
 Inside of `about.js`, also add a `Link` to the `media` page:
 
@@ -151,15 +157,15 @@ export default () => (
 );
 ```
 
-At this stage, when you run `npm start` and you open <a href="http://localhost:3000">http://localhost:3000</a>, your application should look like below:
+At this stage, when you run `npm start` inside of the `guess-next` directory and you open <a href="http://localhost:3000">http://localhost:3000</a>, your application should look like this:
 
 <img src="/images/next.gif" alt="Next.js application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
 
 ### Configuring Next.js
 
-Now let us configure Next.js and add the `guess-webpack` plugin to the configuration of our application!
+Now let us introduce the `GuessPlugin` plugin to the webpack configuration of our Next.js application!
 
-Create a file called `next.config.js` in `guess-next`, and add the following content:
+Create a file called `next.config.js` in `guess-next` with the following content:
 
 ```javascript
 const { GuessPlugin } = require('guess-webpack');
@@ -181,14 +187,16 @@ module.exports = {
 
 In the snippet above, we first import the `GuessPlugin` from `guess-webpack`. After that, we export an object literal with a property `webpack`. This is the hook which lets us alter the webpack configuration of Next.js.
 
-The function which we set as the value of the `webpack` property, we accept two arguments:
+The function which we set as the value of the `webpack` property accepts two arguments:
 
-- `config` - the webpack configuration that we can alter
-- Object which contains metadata for the current build. Here we can access a property called `isServer` which indicates if the current webpack invocation is for the build of the server or the client
+- `config` - the webpack configuration of our application that we're going to alter
+- Object which contains metadata for the current build. Here we can access a flag called `isServer` which indicates if the current webpack invocation is for the build of the server or the client
 
-Inside of the function we check if this build is part of the server-side rendering that Next.js performs. In this case, we just want to return because we don't want Guess.js to perform any prefetching at this phase. Otherwise, we push the `GuessPlugin` in the end of the webpack configuration.
+Inside of the `webpack` function we check if this build is part of the server-side rendering that Next.js performs. In this case, we just want to return because we don't want Guess.js to perform any prefetching at this phase. Otherwise, we push the `GuessPlugin` in the end of the webpack configuration.
 
-Notice the argument we pass to the `GuessPlugin` - an object literal with a single property called `reportProvider`. Guess.js accepts a report provider which is responsible for giving the analytics data for the application. In this case, we provide the file from the disk. Create a file called `routes.json`, in the same directory as `next.config.js`, and add the following content:
+Notice the argument we pass to the `GuessPlugin` - an object literal with a single property called `reportProvider`. Guess.js accepts a report provider which returns the analytics data for the application. In this case, we provide the report from the disk.
+
+Create a file called `routes.json`, in the same directory as `next.config.js`, and add the following content:
 
 ```json
 {
@@ -213,17 +221,19 @@ Notice the argument we pass to the `GuessPlugin` - an object literal with a sing
 }
 ```
 
-This file specifies how many times the user has visited given page from another. For example, if we look at the first property of the outer-most object, we can see that from `/`, there were `80` sessions in which the user has visited `/example` and `20` sessions in which the user has visited `/about`.
+This file specifies how many times the user has visited given page from another. For example, if we look at the first property of the outer-most object, we can see that from `/`, there were `80` sessions in which users have visited `/example` and `20` sessions in which users have visited `/about`.
 
-Based on the content of this file, Guess.js is going to build a model for predictive prefetching.
+**Based on the content of this file, Guess.js is going to build a model for predictive prefetching.**
 
 <div style="background-color: #e7f4ff; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
-Alternatively, if you're using Google Analytics, instead of providing a <code>reportProvider</code>, you can provide a <code>GA</code> property with value your Google Analytics View ID.
+Alternatively, if you're using Google Analytics, instead of providing a <code>reportProvider</code>, you can set the <code>GA</code> property with value your Google Analytics View ID. In this case, Guess.js will fetch data from your Google Analytics account and build the report automatically. For the purpose, you'll have to provide a read-only access to your view.
 </div>
 
 ### Predictive Prefetching
 
-As the final step, we're going to introduce a small snippet of code as part of our `layout.js`:
+We're almost at the finish line! 🏁 Now we're going to perform the actual predictive prefetching with the help of the Next.js' router.
+
+Let's introduce a small snippet of code as part of our component in `layout.js`:
 
 ```javascript
 import { withRouter } from 'next/router';
@@ -267,10 +277,10 @@ export default withRouter(layout);
 
 The two changes we did are:
 
-1. Importing `guess` from the module `guess-webpack/api`
-2. Performing prefetching based on the predictions from `guess()`
+1. We imported `guess` from the module `guess-webpack/api`
+2. We're not performing prefetching based on the predictions of Guess.js
 
-Let us take a look at the second point. First, we check if the value of `window` is not undefined. We do this, to make sure that we're running our application in the browser. We do not want to perform prefetching during server-side rendering. After that, we invoke `guess()`. This invocation will return an object literal of the form:
+Let us take a look at the second point because there's a lot going on there. First, we check if the value of `window` is not `undefined`. We do this, to make sure that we're running our application in the browser. We do not want to perform prefetching during server-side rendering. After that, we invoke `guess()`. This invocation will return an object literal of the form:
 
 ```json
 {
@@ -284,12 +294,14 @@ The semantics of this object is:
 - There's `0.3` probability the user to visit `/` from the current page
 - There's `0.7` probability the user to visit `/about` from the current page
 
-Based on this knowledge, we prefetch the bundles associated with the corresponding routes using `router.prefetch`.
+Based on this knowledge, we prefetch the bundles associated with the corresponding pages using `router.prefetch`.
 
-Keep in mind that this piece of logic will be invoked every time when the user performs a navigation.
+Keep in mind that this piece of logic will be invoked every time when the user performs a navigation but thanks to `router.prefetch`, we're not going to download the same bundle twice!
 
 ### Conclusion
 
-In this guide we saw how we can integrate Guess.js with Next.js. First, we developed a simple Next.js application with four pages. After that, we altered the configuration of our application by using `next.config.js` file and we set the `webpack` hook.
+In this guide we saw how we can integrate Guess.js with Next.js.
 
-Finally, inside of our layout component, we introduced prefetching logic, where we used the `guess()` function exported from `guess-webpack/api` to predict which pages are likely to be visited next from the current page. Using `router.prefetch` we prefetched the bundle corresponding with the pages predicted by Guess.js.
+First, we developed a simple Next.js application with four pages. After that, we altered the webpack configuration of our application by using `next.config.js` and introduced the `GuessPlugin` as part of the build phase.
+
+Finally, inside of the layout component, we added a small snippet with the prefetching logic, where we use the `guess()` function from the `guess-webpack/api` package to predict which pages are likely to be visited next from the current page. Using `router.prefetch` we prefetched the bundle corresponding with the predicted pages by Guess.js.
