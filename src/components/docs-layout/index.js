@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import Layout from '../layout'
 import Sidebar from 'react-sidebar'
 
-import './docs-layout.css'
+import './styles.css'
+import 'hamburgers/dist/hamburgers.min.css'
 
 const mql = window.matchMedia(`(min-width: 800px)`)
 
@@ -18,9 +19,10 @@ class App extends React.Component {
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this)
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
+    this.toggleNavigation = this.toggleNavigation.bind(this)
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     mql.addListener(this.mediaQueryChanged)
   }
 
@@ -32,14 +34,32 @@ class App extends React.Component {
     this.setState({ sidebarOpen: open })
   }
 
+  toggleNavigation() {
+    this.onSetSidebarOpen(!this.state.sidebarOpen)
+  }
+
   mediaQueryChanged() {
     this.setState({ sidebarDocked: mql.matches, sidebarOpen: false })
   }
 
   render() {
+    const isActive = this.state.sidebarOpen
     return (
       <Layout>
         <div className="docs-wrapper">
+          {!mql.matches ? (
+            <button
+              onClick={this.toggleNavigation}
+              className={
+                'hamburger hamburger--spin' + (isActive ? ' is-active' : '')
+              }
+              type="button"
+            >
+              <span className="hamburger-box">
+                <span className="hamburger-inner" />
+              </span>
+            </button>
+          ) : null}
           <Sidebar
             transitions={false}
             rootClassName="docs-sidebar"

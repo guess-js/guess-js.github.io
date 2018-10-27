@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import './header.css'
+import './styles.css'
 
 const Header = ({ siteTitle }) => (
   <div className="header">
@@ -13,22 +13,8 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <nav>
-        <a
-          href="/"
-          style={{
-            textDecoration: 'none',
-          }}
-        >
-          Home
-        </a>
-        <Link
-          to="/docs"
-          style={{
-            textDecoration: 'none',
-          }}
-        >
-          Docs
-        </Link>
+        <Link to="/">Home</Link>
+        <Link to="/docs">Docs</Link>
       </nav>
     </div>
   </div>

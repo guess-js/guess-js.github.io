@@ -1,3 +1,7 @@
 .header {
   background-color: #174d73;
 }
+
+.header a {
+  text-decoration: none;
+}

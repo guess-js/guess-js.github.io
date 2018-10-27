@@ -1,15 +1,10 @@
-@media only screen and (max-width: 650px) {
-  .docs-nav {
-    width: 100%;
-  }
-}
-
 .docs-sidebar {
   top: 78px !important;
 }
 
 .docs-nav {
   width: 200px;
+  background: white;
 }
 
 .docs-nav header {
@@ -49,11 +44,35 @@
 }
 
 .docs-content {
-  padding: 20px;
+  padding: 30px;
 }
 
 .docs-content h1,
 .docs-content h2,
 .docs-content h3 {
   text-align: center;
+}
+
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  z-index: 22;
+}
+
+@media only screen and (max-width: 800px) {
+  .docs-nav {
+    width: 100%;
+    z-index: 20 !important;
+  }
+
+  .docs-nav header {
+    margin-top: 10px;
+    padding-left: 110px;
+    border: none;
+  }
+
+  .docs-nav li {
+    padding-left: 130px;
+    border: none;
+  }
 }
