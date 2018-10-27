@@ -19,3 +19,12 @@
   background-color: #174d73;
   height: 300px;
 }
+
+iframe {
+  display: block;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+}

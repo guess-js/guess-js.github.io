@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/doc-template.js`)
+  const template = path.resolve(`src/templates/doc-template.js`)
 
   return graphql(`
     {
@@ -40,9 +40,8 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {}, // additional data can be passed via context
+        path: node.frontmatter.path || 'foo',
+        component: template,
       })
     })
   })

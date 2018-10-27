@@ -17,6 +17,17 @@ const IndexPage = () => (
         on the web
       </div>
     </div>
+    <br />
+    <h2>Guess.js announcement at Google I/O 2018</h2>
+    <iframe
+      title="Guess.js announcement at Google I/O"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Mv-l3-tJgGk?start=2093"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    />
   </Layout>
 )
 

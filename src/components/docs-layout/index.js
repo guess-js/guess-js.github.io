@@ -104,13 +104,13 @@ class App extends React.Component {
           <header>API</header>
           <ul>
             <li>
-              <Link to="/">guess-webpack</Link>
+              <Link to="/docs/api/webpack/index">guess-webpack</Link>
             </li>
             <li>
-              <Link to="/">guess-ga</Link>
+              <Link to="/docs/api/ga/index">guess-ga</Link>
             </li>
             <li>
-              <Link to="/">guess-parser</Link>
+              <Link to="/docs/api/parser/index">guess-parser</Link>
             </li>
           </ul>
         </section>
