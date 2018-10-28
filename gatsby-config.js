@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/guessjs.com',
   siteMetadata: {
     title: 'Guess.js',
   },
