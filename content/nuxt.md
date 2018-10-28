@@ -180,18 +180,7 @@ export default {
   build: {
     extend(config, ctx) {
       if (ctx.isClient) {
-        const guessOptions = {
-          runtime: {
-            delegate: true,
-            prefetchConfig: {
-              '4g': 0.3,
-              '3g': 0.3,
-              '2g': 0.3,
-              'slow-2g': 0.3
-            }
-          },
-          routeProvider: false
-        }
+        let guessOptions = {}
         if (GA) guessOptions.GA = GA
         else guessOptions.reportProvider = () => Promise.resolve(JSON.parse(readFileSync('./routes.json')))
 
@@ -213,8 +202,8 @@ Alternative for alternatively, a  [@nuxtjs/guess](https://github.com/daliborgogi
 
 ```json
 {
-  modules: [
-    [ '@nuxtjs/guess', { GA: 'XXXXXXX' }]
+  "modules": [
+    [ "@nuxtjs/guess", { "GA": "XXXXXXX" }]
  ]
 }
 ```
