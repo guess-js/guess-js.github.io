@@ -7,7 +7,15 @@ import Sidebar from 'react-sidebar'
 import './styles.css'
 import 'hamburgers/dist/hamburgers.min.css'
 
-const mql = window.matchMedia(`(min-width: 800px)`)
+const BEMQL = {
+  removeListener() {},
+  addListener() {},
+}
+
+const mql =
+  typeof window === 'undefined'
+    ? BEMQL
+    : window.matchMedia(`(min-width: 800px)`)
 
 class App extends React.Component {
   constructor(props) {

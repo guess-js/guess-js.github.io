@@ -2,13 +2,27 @@
 
 This repository contains the source code for [guessjs.com](https://guessjs.com).
 
-## Usage
+## Developing
 
 ```bash
 npm i -g gatsby
 git clone git@github.com:guess-js/guessjs.com && cd guessjs.com
 npm i
 gatsby develop
+```
+
+## Deployment
+
+For deployment, you need the `guess` repository in a sibling directory of the docs in order to generate API documentation:
+
+```bash
+git clone git@github.com:guess-js/guess
+git clone git@github.com:guess-js/guessjs.com && cd guessjs.com
+npm i
+npm run build
+git add .
+git commit -am 'Publishing the docs'
+git push origin master
 ```
 
 ## Adding a Guide
