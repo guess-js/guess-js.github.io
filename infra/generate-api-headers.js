@@ -24,6 +24,7 @@ ${content}
     result = result.replace(/\[(.*?)\]\((.*?)\)/g, (all, alt, link) => {
       if (/.md(#.*)?$/.test(link)) {
         return `[${alt}](${link
+          .replace('README.md', 'index')
           .replace(/\.md/, '')
           .replace(/\./g, DotReplace)
           .replace(new RegExp(`${DotReplace}${DotReplace}`, 'g'), '..')})`
