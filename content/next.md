@@ -159,7 +159,7 @@ export default () => (
 
 At this stage, when you run `npm start` inside of the `guess-next` directory and you open <a href="http://localhost:3000">http://localhost:3000</a>, your application should look like this:
 
-<img src="images/next.gif" alt="Next.js application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
+<img src="/website/images/next.gif" alt="Next.js application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
 
 ### Configuring Next.js
 
