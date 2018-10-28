@@ -23,6 +23,7 @@
 iframe.intro-video {
   display: block;
   margin: auto;
+  max-width: 100%;
 }
 
 h2 {

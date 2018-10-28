@@ -25,9 +25,9 @@ const IndexPage = () => (
       width="560"
       height="315"
       src="https://www.youtube.com/embed/Mv-l3-tJgGk?start=2093"
-      frameborder="0"
+      frameBorder="0"
       allow="autoplay; encrypted-media"
-      allowfullscreen
+      allowFullScreen={true}
     />
   </Layout>
 )

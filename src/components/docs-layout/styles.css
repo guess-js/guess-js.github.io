@@ -47,6 +47,10 @@
   padding: 30px;
 }
 
+.docs-content img {
+  max-width: 100% !important;
+}
+
 .docs-content h1,
 .docs-content h2,
 .docs-content h3 {
