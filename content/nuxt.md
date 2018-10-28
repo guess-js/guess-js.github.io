@@ -33,7 +33,7 @@ Then we need to specify how to start `nuxt`:
 
 - `dev` - will launch Nuxt.js via `npm run dev` at `http://localhost:3000`.
 - `build` - will build your application with webpack and minify the JS & CSS (for production).
-- `start` - will Start the server in production mode (after running nuxt build).
+- `start` - will start the server in production mode (after running nuxt build).
 
 Add `nuxt` to the project's as `dependencies` and `guess-webpack` as `devDependencies`:
 
@@ -84,13 +84,13 @@ Let's create `pages`
 $ mkdir pages && cd pages && touch about.vue example.vue index.vue media.vue
 ```
 
-Inside of `pages/about.vue`, add a Link to the `media` page:
+Inside of `pages/about.vue`, add a link to the `media` page:
 
 ```html
 <template>
   <div>
     <h1>About</h1>
-    <p>You can find the media page <nuxt-link to="/media">here</nuxt-linl>.</p>
+    <p>You can find the media page <nuxt-link to="/media">here</nuxt-link>.</p>
   </div>
 </template>
 ```
@@ -114,7 +114,7 @@ Now let us introduce the `GuessPlugin` plugin to the webpack configuration of ou
 
 Create a file called `nuxt.config.js` in `guess-nuxt` with the following content:
 
-```js
+```javascript
 import { readFileSync } from 'fs'
 import { GuessPlugin } from 'guess-webpack'
 
@@ -170,9 +170,7 @@ Alternatively, if you're using Google Analytics, instead of providing a <code>re
 
 In this particular case there is slight changes in `nuxt.config.js`:
 
-```js
-
-```js
+```javascript
 import { readFileSync } from 'fs'
 import { GuessPlugin } from 'guess-webpack'
 
@@ -230,7 +228,7 @@ Nothing more to do, `@nuxtjs/guess` will automagically prefetch the routes depen
 Let's go back one step. We're at the finish line! 🏁 Now we're going to perform the actual predictive prefetching.
 Let's introduce a small snippet of code as part of the Nuxt.js `plugin/guess.js`:
 
-```js
+```javascript
 import Vue from 'vue'
 import { guess } from 'guess-webpack/api'
 
@@ -253,7 +251,7 @@ export default ({ app: { router } }) =>  {
 
 Next, register `plugin/guess.js` in `nuxt.config.js`:
 
-```js
+```javascript
 export default {
   plugins: [
     { src: '~/plugins/guess', ssr: false }
