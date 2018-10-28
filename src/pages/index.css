@@ -20,7 +20,7 @@
   height: 300px;
 }
 
-iframe {
+iframe.intro-video {
   display: block;
   margin: auto;
 }

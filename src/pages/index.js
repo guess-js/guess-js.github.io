@@ -20,6 +20,7 @@ const IndexPage = () => (
     <br />
     <h2>Guess.js announcement at Google I/O 2018</h2>
     <iframe
+      className="intro-video"
       title="Guess.js announcement at Google I/O"
       width="560"
       height="315"
