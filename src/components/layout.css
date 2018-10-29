@@ -610,7 +610,8 @@ pre tt:after {
 
 /* Guess styles */
 nav {
-  text-align: right;
+  text-align: left;
+  margin-left: 50px;
 }
 
 nav a {
@@ -635,11 +636,19 @@ nav a:hover {
 .github-corner svg {
   fill: #fff;
   color: #174d73;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+.octocat-corner {
+  fill: #70b7fd;
+  color: #fff;
   position: absolute;
   top: 0;
   border: 0;
-  left: 0;
-  transform: scale(-1, 1);
+  right: 0;
 }
 
 .github-corner:hover .octo-arm {
@@ -660,7 +669,6 @@ nav a:hover {
     transform: rotate(10deg);
   }
 }
-
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;

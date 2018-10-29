@@ -91,35 +91,35 @@ class App extends React.Component {
         <section>
           <header>Guides</header>
           <ul>
-            <li>
-              <Link to="/docs/static">Static sites</Link>
-            </li>
-            <li>
-              <Link to="/docs/angular">Angular</Link>
-            </li>
-            <li>
-              <Link to="/docs/gatsby">Gatsby</Link>
-            </li>
-            <li>
-              <Link to="/docs/next">Next.js</Link>
-            </li>
-            <li>
-              <Link to="/docs/nuxt">Nuxt.js</Link>
-            </li>
+            <Link to="/docs/static">
+              <li>Static sites</li>
+            </Link>
+            <Link to="/docs/angular">
+              <li>Angular</li>
+            </Link>
+            <Link to="/docs/gatsby">
+              <li>Gatsby</li>
+            </Link>
+            <Link to="/docs/next">
+              <li>Next.js</li>
+            </Link>
+            <Link to="/docs/nuxt">
+              <li>Nuxt.js</li>
+            </Link>
           </ul>
         </section>
         <section>
           <header>API</header>
           <ul>
-            <li>
-              <Link to="/docs/api/webpack/index">guess-webpack</Link>
-            </li>
-            <li>
-              <Link to="/docs/api/ga/index">guess-ga</Link>
-            </li>
-            <li>
-              <Link to="/docs/api/parser/index">guess-parser</Link>
-            </li>
+            <Link to="/docs/api/webpack/index">
+              <li>guess-webpack</li>
+            </Link>
+            <Link to="/docs/api/ga/index">
+              <li>guess-ga</li>
+            </Link>
+            <Link to="/docs/api/parser/index">
+              <li>guess-parser</li>
+            </Link>
           </ul>
         </section>
       </>

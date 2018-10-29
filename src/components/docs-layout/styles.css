@@ -23,28 +23,32 @@
 
 .docs-nav li {
   list-style: none;
-  font-size: 17px;
-  border: 1px solid #eee;
+  font-size: 15px;
   width: 100%;
   padding: 5px;
   padding-left: 30px;
   padding-right: 10px;
   margin: 0;
   border-bottom: 0;
+  transition: 0.2s background-color;
 }
 
-.docs-nav li a {
+.docs-nav li:hover {
+  background-color: #eee;
+}
+
+.docs-nav a {
   color: #1a4e72;
   text-decoration: none;
   opacity: 0.8;
 }
 
-.docs-nav li a:hover {
+.docs-nav a:hover {
   opacity: 1;
 }
 
 .docs-content {
-  padding: 30px;
+  padding: 20px;
 }
 
 .docs-content img {
@@ -61,6 +65,13 @@
   cursor: pointer;
   position: absolute;
   z-index: 22;
+  top: 12px;
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before {
+  background: #baf5ff !important;
 }
 
 @media only screen and (max-width: 800px) {
@@ -78,5 +89,9 @@
   .docs-nav li {
     padding-left: 130px;
     border: none;
+  }
+
+  .docs-content {
+    padding: 10px;
   }
 }
