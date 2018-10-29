@@ -152,7 +152,7 @@ Once you've defined all routes from above, start a development server:
 ng serve
 ```
 
-<img src="/website/images/angular-before.gif" alt="Angular application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
+<img src="/images/angular-before.gif" alt="Angular application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
 
 Notice that while navigating in the application, each time when the user visits a page the browser sends a request for the corresponding JavaScript bundle. We observe this behavior because we're using lazy-loading for each route. Lazy-loading is a compelling technique that allows us to drop the size of the initial bundle. On the other hand, lazy-loading may also introduce latency when changing the page, if we haven't downloaded the bundles associated with the target route.
 
@@ -291,7 +291,7 @@ cd dist/guess-angular && serve -s .
 
 On the image below, we can see the prefetching logic that Guess.js added to the application:
 
-<img src="/website/images/angular-after.gif" alt="Angular prefetching" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
+<img src="/images/angular-after.gif" alt="Angular prefetching" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
 
 When the user navigates from "Home" to "Example," the browser provides the "Example" bundle from the disk instead of fetching it from the network. We observe this behavior because when the user initially visits the "Home" page, Guess.js prefetches the bundle associated with the "Example" page.
 

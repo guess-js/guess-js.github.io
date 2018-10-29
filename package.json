@@ -31,8 +31,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths && rm -rf docs && cp -r public docs",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
+    "deploy": "npm run build && gh-pages --dist public --branch master",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:doc": "rm -rf content/api && npm run build:doc:webpack && npm run build:doc:ga && npm run build:doc:parser && node infra/generate-api-headers.js",
@@ -41,6 +42,7 @@
     "build:doc:parser": "typedoc --readme none --ignoreCompilerErrors --out content/api/parser --theme markdown ../guess/packages/guess-parser/src/**/*.ts"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "prettier": "^1.14.2",
     "typedoc": "^0.13.0",
     "typedoc-plugin-markdown": "^1.1.18",

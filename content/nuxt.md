@@ -105,7 +105,7 @@ In rest of `pages/*.vue` add some content:
 
 At this stage, when you run `npm run dev` inside of the `guess-nuxt` directory and you open `http://localhost:3000`, your application should look like this:
 
-<img src="/website/images/nuxt.gif" alt="Nuxt.js application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
+<img src="/images/nuxt.gif" alt="Nuxt.js application" style="display: block; max-width: 450px; margin: auto; margin-bottom: 20px;">
 
 
 ### Configuring Nuxt.js
