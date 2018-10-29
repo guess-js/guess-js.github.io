@@ -22,15 +22,26 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'Guess.js documentation website' },
+            {
+              name: 'keywords',
+              content:
+                'Guess.js, web performance, predictive prefetching, prefetching, machine learning, markov chain, neural network, lstm',
+            },
+          ]}
+          link={[
+            {
+              rel: 'shortcut icon',
+              type: 'image/png',
+              href: require('../../static/images/favicon.png'),
+            },
+            {
+              href: 'https://fonts.googleapis.com/css?family=Roboto',
+              rel: 'stylesheet',
+            },
           ]}
         >
           <html lang="en" />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto"
-            rel="stylesheet"
-          />
         </Helmet>
 
         <Header siteTitle={data.site.siteMetadata.title} />
