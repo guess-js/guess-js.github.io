@@ -5,3 +5,9 @@
 .header a {
   text-decoration: none;
 }
+
+.header .guess-logo {
+  width: 40px;
+  float: left;
+  margin-top: -3px;
+}

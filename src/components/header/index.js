@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import './styles.css'
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <div className="header">
     <div
       style={{
@@ -13,6 +13,11 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <nav>
+        <img
+          className="guess-logo"
+          src={require('../../../static/images/guess.svg')}
+          alt="Guess.js Logo"
+        />
         <Link to="/">Home</Link>
         <Link to="/docs">Docs</Link>
       </nav>

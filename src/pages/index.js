@@ -4,8 +4,8 @@ import Layout from '../components/layout'
 
 import './index.css'
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = ({ location }) => (
+  <Layout location={location}>
     <div className="main">
       <img
         className="headline-logo"

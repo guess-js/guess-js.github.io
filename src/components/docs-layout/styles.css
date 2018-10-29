@@ -66,6 +66,7 @@
   position: absolute;
   z-index: 22;
   top: 12px;
+  left: 0;
 }
 
 .hamburger-inner,

@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header/index'
 import './layout.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -44,7 +44,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
 
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header location={location} siteTitle={data.site.siteMetadata.title} />
 
         <a
           href="https://github.com/guess-js/guess"
