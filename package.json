@@ -38,7 +38,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:doc": "rm -rf content/api && npm run build:doc:webpack && npm run build:doc:ga && npm run build:doc:parser && node infra/generate-api-headers.js",
     "build:doc:webpack": "typedoc --readme none --ignoreCompilerErrors --out content/api/webpack --theme markdown ../guess/packages/guess-webpack/src/**/*.ts",
-    "build:doc:ga": "typedoc --readme none --ignoreCompilerErrors --out content/api/ga --theme markdown ../guess/packages/guess-ga/src/**/*.ts",
+    "build:doc:ga": "typedoc --readme none --ignoreCompilerErrors --out content/api/ga --theme markdown ../guess/packages/guess-ga/**/*.ts",
     "build:doc:parser": "typedoc --readme none --ignoreCompilerErrors --out content/api/parser --theme markdown ../guess/packages/guess-parser/src/**/*.ts"
   },
   "devDependencies": {
