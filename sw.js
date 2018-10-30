@@ -32,24 +32,30 @@ self.__precacheManifest = [
     "url": "app.ea9621e90a4876e3ab3c.css"
   },
   {
-    "url": "app-eef4ad774a0c0c8fff20.js"
+    "url": "app-85d7f5dba029d75b63fc.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-5369a7a69f40dccb10df.js"
   },
   {
     "url": "index.html",
-    "revision": "52920621bd517214ed13fa981ad10944"
+    "revision": "1de91e304e319bdc2af41fcb545cfe32"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "fd4ac77e06b2420ff02125ab2cbf2322"
+    "revision": "12c27a9187a196a2b7778181d62f13df"
   },
   {
     "url": "component---src-pages-index-js.0e21302c6b742b374564.css"
   },
   {
     "url": "0-18ce5eb9a0622156205d.js"
+  },
+  {
+    "url": "7-dd644cedc53f2871cf88.js"
+  },
+  {
+    "url": "component---src-templates-doc-template-js-d4ffa6e51f14fc763d93.js"
   },
   {
     "url": "component---src-pages-index-js-aa1b926dbbc1c8c459e6.js"
