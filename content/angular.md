@@ -297,6 +297,8 @@ When the user navigates from "Home" to "Example," the browser provides the "Exam
 
 Same happens when the user goes from "About" to "Media" since Guess.js prefetches the "Media" bundles when the user initially visits "About."
 
+**Note**: The prefecthing would not work in `dev` mode. You should build the application in production mode to see the prefetching working.
+
 ### Conclusion
 
 In this guide, we saw how to integrate Guess.js with Angular using Angular CLI.
