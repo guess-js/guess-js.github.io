@@ -297,7 +297,9 @@ When the user navigates from "Home" to "Example," the browser provides the "Exam
 
 Same happens when the user goes from "About" to "Media" since Guess.js prefetches the "Media" bundles when the user initially visits "About."
 
-**Note**: The prefecthing would not work in `dev` mode. You should build the application in production mode to see the prefetching working.
+<div style="background-color: #e7f4ff; border-radius: 5px; padding: 20px; margin-bottom: 20px;>
+<strong>Note:</strong> The prefecthing would not work in dev mode. You should build the application in production mode to see the prefetching working. To try it out run: <code>npm run build</code>.
+</div>
 
 ### Conclusion
 
