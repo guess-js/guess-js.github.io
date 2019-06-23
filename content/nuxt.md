@@ -112,7 +112,7 @@ At this stage, when you run `npm run dev` inside of the `guess-nuxt` directory a
 
 Now let us introduce the `GuessPlugin` plugin to the webpack configuration of our Nuxt.js application!
 
-Create a file called `nuxt.config.js` in `guess-nuxt` with the following content:
+Create a file called `nuxt.config.js` in `guess-nuxt` with the content below. In [Nuxt 2.4.0](https://nuxtjs.org/guide/release-notes#smart-prefetching-), pages are automatically prefetched using [quicklink](https://github.com/GoogleChromeLabs/quicklink). To use Guess.js instead, you need to disable that feature by setting `router.prefetchLinks` to `false`.
 
 ```javascript
 import { readFileSync } from 'fs'
@@ -131,6 +131,10 @@ export default {
         )
       }
     }
+  },
+  // Nuxt > v2.4.0
+  router: {
+    prefetchLinks: false
   }
 }
 ```
@@ -193,12 +197,13 @@ export default {
 }
 ```
 
-Alternative for alternatively, a  [@nuxtjs/guess](https://github.com/daliborgogic/guess-module) module for Guess.js!
+Alternatively, there is a [@nuxtjs/guess](https://github.com/daliborgogic/guess-module) module for Guess.js!
 
 ### Setup
 
 - Add `@nuxtjs/guess` dependency to your project
 - Add `@nuxtjs/guess` to modules section of `nuxt.config.js`
+- If using Nuxt > 2.4.0, set `router.prefetchLinks` to `false` in `nuxt.config.js`
 
 ```json
 {
