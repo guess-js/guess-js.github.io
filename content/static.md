@@ -13,7 +13,7 @@ Guess.js for non-Webpack sites.
 
 ✔ **Intelligent:** Predictive fetching uses the client's connection type to determine whether a resource should be prefetched.
 
-👉🏻: <a href="https://guess-static-sites-demo.firebaseapp.com/" target="_blank">View Demo</a>
+<!-- 👉🏻: <a href="https://guess-static-sites-demo.firebaseapp.com/" target="_blank">View Demo</a> -->
 
 ## How guess-static-sites works
 
